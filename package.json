@@ -20,9 +20,11 @@
         "postcss": "^8.1.14",
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.57.1",
-        "sass-loader": "^12.6.0"
+        "sass-loader": "^12.6.0",
+        "vue-loader": "^16.2.0"
     },
     "dependencies": {
-        "vue": "^3.3.8"
+        "vue": "^3.3.8",
+        "vuexy": "^1.1.3"
     }
 }
