@@ -1,3 +1,6 @@
+import '../sass/app.scss';
+
+
 window._ = require('lodash');
 
 /**
