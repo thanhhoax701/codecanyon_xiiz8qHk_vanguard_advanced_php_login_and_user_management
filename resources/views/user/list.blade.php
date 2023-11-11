@@ -89,6 +89,7 @@
         </div>
     </div>
 </div>
+<!-- <div id="app"></div> -->
 
 {!! $users->render() !!}
 
@@ -100,4 +101,5 @@
             $("#users-form").submit();
         });
     </script>
+    <!-- <script src="{{ mix('js/app.js') }}"></script> -->
 @stop
