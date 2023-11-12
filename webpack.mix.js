@@ -30,9 +30,7 @@ mix.styles([
     'public/assets/plugins/croppie/croppie.css',
 ], 'public/assets/css/vendor.css');
 
-// mix.sass('resources/sass/app.scss', 'public/assets/css');
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.sass('resources/sass/app.scss', 'public/assets/css');
 
 if (mix.inProduction()) {
     mix.version();

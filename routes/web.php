@@ -204,7 +204,3 @@ Route::group(['prefix' => 'install'], function () {
     Route::get('complete', 'InstallController@complete')->name('install.complete');
     Route::get('error', 'InstallController@error')->name('install.error');
 });
-
-
-
-Route::get('/vue', 'VueController@indev')->name('indev');
