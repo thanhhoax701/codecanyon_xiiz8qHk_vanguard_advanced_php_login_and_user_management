@@ -4,9 +4,9 @@
 @section('page-heading', __('Users'))
 
 @section('breadcrumbs')
-    <li class="breadcrumb-item active">
-        @lang('Users')
-    </li>
+<li class="breadcrumb-item active">
+    @lang('Users')
+</li>
 @stop
 
 @section('content')
@@ -15,91 +15,132 @@
 
 <div class="card">
     <div class="card-body">
-
         <form action="" method="GET" id="users-form" class="pb-2 mb-3 border-bottom-light">
             <div class="row my-3 flex-md-row flex-column-reverse">
-                <div class="col-md-4 mt-md-0 mt-2">
+                <div class="v-col-sm-4 v-col-12">
                     <div class="input-group custom-search-form">
-                        <input type="text"
-                               class="form-control input-solid"
-                               name="search"
-                               value="{{ Request::get('search') }}"
-                               placeholder="@lang('Search for users...')">
+                        <input type="text" class="form-control input-solid" name="search" value="{{ Request::get('search') }}" placeholder="@lang('Search for users...')">
 
-                            <span class="input-group-append">
-                                @if (Request::has('search') && Request::get('search') != '')
-                                    <a href="{{ route('users.index') }}"
-                                           class="btn btn-light d-flex align-items-center text-muted"
-                                           role="button">
-                                        <i class="fas fa-times"></i>
-                                    </a>
-                                @endif
-                                <button class="btn btn-light" type="submit" id="search-users-btn">
-                                    <i class="fas fa-search text-muted"></i>
-                                </button>
-                            </span>
+                        <span class="input-group-append">
+                            @if (Request::has('search') && Request::get('search') != '')
+                            <a href="{{ route('users.index') }}" class="btn btn-light d-flex align-items-center text-muted" role="button">
+                                <i class="fas fa-times"></i>
+                            </a>
+                            @endif
+                            <button class="btn btn-light" type="submit" id="search-users-btn">
+                                <i class="fas fa-search text-muted"></i>
+                            </button>
+                        </span>
                     </div>
                 </div>
-
-                <div class="col-md-2 mt-2 mt-md-0">
+                <div class="v-col-sm-4 v-col-12">
                     {!!
-                        Form::select(
-                            'status',
-                            $statuses,
-                            Request::get('status'),
-                            ['id' => 'status', 'class' => 'form-control input-solid']
-                        )
+                    Form::select(
+                    'status',
+                    $statuses,
+                    Request::get('status'),
+                    ['id' => 'status', 'class' => 'form-control input-solid']
+                    )
                     !!}
                 </div>
-
-                <div class="col-md-6">
-                    <a href="{{ route('users.create') }}" class="btn btn-primary btn-rounded float-right">
-                        <i class="fas fa-plus mr-2"></i>
-                        @lang('Add User')
+                <div class="v-col-sm-4 v-col-12">
+                    <a href="{{ route('users.create') }}" class="float-right">
+                        <button type="button" class="v-btn v-btn--elevated v-theme--light bg-primary v-btn--density-default v-btn--size-default v-btn--variant-elevated">
+                            <span class="v-btn__overlay"></span>
+                            <span class="v-btn__underlay"></span>
+                            <span class="v-btn__prepend">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" tag="i" class="v-icon notranslate v-theme--light v-icon--size-default iconify iconify--tabler" width="1em" height="1em" viewBox="0 0 24 24">
+                                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 5v14m-7-7h14"></path>
+                                </svg>
+                            </span>
+                            <span class="v-btn__content" data-no-activator="">Add User</span></button>
                     </a>
                 </div>
             </div>
         </form>
-
-        <div class="table-responsive" id="users-table-wrapper">
-            <table class="table table-borderless table-striped">
-                <thead>
-                <tr>
-                    <th></th>
-                    <th class="min-width-80">@lang('Username')</th>
-                    <th class="min-width-150">@lang('Full Name')</th>
-                    <th class="min-width-100">@lang('Email')</th>
-                    <th class="min-width-80">@lang('Registration Date')</th>
-                    <th class="min-width-80">@lang('Status')</th>
-                    <th class="text-center min-width-150">@lang('Action')</th>
-                </tr>
-                </thead>
-                <tbody>
-                    @if (count($users))
+        <hr class="v-divider v-theme--light" aria-orientation="horizontal" role="separator">
+        <!-- SECTION datatable -->
+        <div class="v-table v-table--has-bottom v-theme--light v-table--density-default v-data-table text-no-wrap">
+            <div class="v-table__wrapper" id="users-table-wrapper">
+                <table class="table-borderlessble  table-striped">
+                    <thead class="v-data-table__thead" role="rowgroup">
+                        <tr>
+                            <th></th>
+                            <th class="v-data-table__td v-data-table-column--align-start v-data-table__th v-data-table__th--sortable v-data-table__th v-data-table__th--sortable">
+                                <div class="v-data-table-header__content">
+                                    <span>@lang('Username')</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" tag="i" class="v-icon notranslate v-theme--light v-icon--size-default v-data-table-header__sort-icon iconify iconify--tabler" width="1em" height="1em" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 5v14m6-8l-6-6m-6 6l6-6">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </th>
+                            <th class="v-data-table__td v-data-table-column--align-start v-data-table__th v-data-table__th--sortable v-data-table__th v-data-table__th--sortable">
+                                <div class="v-data-table-header__content">
+                                    <span>@lang('Full Name')</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" tag="i" class="v-icon notranslate v-theme--light v-icon--size-default v-data-table-header__sort-icon iconify iconify--tabler" width="1em" height="1em" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 5v14m6-8l-6-6m-6 6l6-6">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </th>
+                            <th class="v-data-table__td v-data-table-column--align-start v-data-table__th v-data-table__th--sortable v-data-table__th v-data-table__th--sortable">
+                                <div class="v-data-table-header__content">
+                                    <span>@lang('Email')</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" tag="i" class="v-icon notranslate v-theme--light v-icon--size-default v-data-table-header__sort-icon iconify iconify--tabler" width="1em" height="1em" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 5v14m6-8l-6-6m-6 6l6-6">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </th>
+                            <th class="v-data-table__td v-data-table-column--align-start v-data-table__th v-data-table__th--sortable v-data-table__th v-data-table__th--sortable">
+                                <div class="v-data-table-header__content">
+                                    <span>@lang('Registration Date')</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" tag="i" class="v-icon notranslate v-theme--light v-icon--size-default v-data-table-header__sort-icon iconify iconify--tabler" width="1em" height="1em" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 5v14m6-8l-6-6m-6 6l6-6">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </th>
+                            <th class="v-data-table__td v-data-table-column--align-start v-data-table__th v-data-table__th--sortable v-data-table__th v-data-table__th--sortable">
+                                <div class="v-data-table-header__content">
+                                    <span>@lang('Status')</span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" tag="i" class="v-icon notranslate v-theme--light v-icon--size-default v-data-table-header__sort-icon iconify iconify--tabler" width="1em" height="1em" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 5v14m6-8l-6-6m-6 6l6-6">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </th>
+                            <th class="v-data-table__td v-data-table-column--align-start v-data-table__th v-data-table__th">
+                                <div class="v-data-table-header__content">
+                                    <span>@lang('Action')</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="v-data-table__tbody" role="rowgroup">
+                        @if (count($users))
                         @foreach ($users as $user)
-                            @include('user.partials.row')
+                        @include('user.partials.row')
                         @endforeach
-                    @else
+                        @else
                         <tr>
                             <td colspan="7"><em>@lang('No records found.')</em></td>
                         </tr>
-                    @endif
-                </tbody>
-            </table>
+                        @endif
+                    </tbody>
+                </table>
+            </div>
         </div>
+        <!-- SECTION -->
     </div>
+
 </div>
-<div id="app"></div>
+
 
 {!! $users->render() !!}
 
 @stop
 
 @section('scripts')
-    <script>
-        $("#status").change(function () {
-            $("#users-form").submit();
-        });
-    </script>
-    <script src="{{ mix('js/app.js') }}"></script>
+<script>
+    $("#status").change(function() {
+        $("#users-form").submit();
+    });
+</script>
 @stop
