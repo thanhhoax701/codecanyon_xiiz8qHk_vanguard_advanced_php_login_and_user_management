@@ -8,9 +8,7 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
-        "lint": "eslint . -c .eslintrc.js --fix --ext .ts,.js,.vue,.tsx,.jsx",
-        "postinstall": "npm run build:icons",
-        "build:icons": "node resources/js/admin/@iconify/build-icons.js"
+        "lint": "eslint . -c .eslintrc.js --fix --ext .ts,.js,.vue,.tsx,.jsx"
     },
     "devDependencies": {
         "@antfu/eslint-config-vue": "0.38.5",

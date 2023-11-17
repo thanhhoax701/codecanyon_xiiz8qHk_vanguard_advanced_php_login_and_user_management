@@ -9,7 +9,7 @@ import vuetify from '@/plugins/vuetify'
 import { loadFonts } from '@/plugins/webfontloader'
 import router from '@/router'
 import { abilitiesPlugin } from '@casl/vue'
-import '@core/scss/template/index.scss'
+import '@core-scss/template/index.scss'
 import '@styles/styles.scss'
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
@@ -28,7 +28,7 @@ app.use(router)
 app.use(layoutsPlugin)
 app.use(i18n)
 app.use(abilitiesPlugin, ability, {
-  useGlobalProperties: true,
+    useGlobalProperties: true,
 })
 
 // Mount vue app

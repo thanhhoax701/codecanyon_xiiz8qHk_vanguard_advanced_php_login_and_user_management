@@ -58,8 +58,9 @@
                 </div>
             </div>
         </form>
+
         <hr class="v-divider v-theme--light" aria-orientation="horizontal" role="separator">
-        <!-- SECTION datatable -->
+
         <div class="v-table v-table--has-bottom v-theme--light v-table--density-default v-data-table text-no-wrap">
             <div class="v-table__wrapper" id="users-table-wrapper">
                 <table class="table-borderlessble  table-striped">
@@ -127,9 +128,7 @@
                 </table>
             </div>
         </div>
-        <!-- SECTION -->
     </div>
-
 </div>
 
 
