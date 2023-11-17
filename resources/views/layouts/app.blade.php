@@ -22,7 +22,8 @@
     <link media="all" type="text/css" rel="stylesheet" href="{{ url(mix('assets/css/app.css')) }}">
 
     <!-- Add Template -->
-    <link media="all" type="text/css" rel="stylesheet" href="{{ url(mix('css/styles.css')) }}">
+    <link media="all" type="text/css" rel="stylesheet" href="{{ url(mix('assets/css/styles.css')) }}">
+
 
     @yield('styles')
 
@@ -45,10 +46,18 @@
 
     <script src="{{ url(mix('assets/js/vendor.js')) }}"></script>
     <script src="{{ url('assets/js/as/app.js') }}"></script>
-
     <!-- Add Template -->
-    <script src="{{ url(mix('js/main.js')) }}"></script>
+    <script type="module" src="{{url('js')}}/main.js"></script>
+    <script>
+        const loaderColor = localStorage.getItem('vuexy-initial-loader-bg') || '#FFFFFF'
+        const primaryColor = localStorage.getItem('vuexy-initial-loader-color') || '#7367F0'
 
+        if (loaderColor)
+            document.documentElement.style.setProperty('--initial-loader-bg', loaderColor)
+
+        if (primaryColor)
+            document.documentElement.style.setProperty('--initial-loader-color', primaryColor)
+    </script>
     @yield('scripts')
 
     @hook('app:scripts')

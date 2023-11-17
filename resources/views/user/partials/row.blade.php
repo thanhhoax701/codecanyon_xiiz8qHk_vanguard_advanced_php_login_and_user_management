@@ -21,7 +21,7 @@
             {{ trans("app.status.{$user->status}") }}
         </span>
     </td>
-    <td class="text-center align-middle">
+    <td class="align-middle">
         <div class="dropdown show d-inline-block">
             <a class="btn btn-icon"
                href="#" role="button" id="dropdownMenuLink"

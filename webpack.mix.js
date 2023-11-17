@@ -33,8 +33,7 @@ mix.styles([
 mix.sass('resources/sass/app.scss', 'public/assets/css');
 
 // Add template
-mix.js('public/template_vuexy/main.js', 'public/js')
-    .sass('public/template_vuexy/styles/styles.scss', 'public/css')
+mix.sass('public/template_vuexy/styles/styles.scss', 'public/assets/css')
 
 
 if (mix.inProduction()) {

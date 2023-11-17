@@ -53,7 +53,8 @@
                                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 5v14m-7-7h14"></path>
                                 </svg>
                             </span>
-                            <span class="v-btn__content" data-no-activator="">Add User</span></button>
+                            <span class="v-btn__content" data-no-activator="">Add User</span>
+                        </button>
                     </a>
                 </div>
             </div>
