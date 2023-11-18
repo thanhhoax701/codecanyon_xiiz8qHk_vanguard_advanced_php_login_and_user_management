@@ -47,7 +47,7 @@
     <script src="{{ url(mix('assets/js/vendor.js')) }}"></script>
     <script src="{{ url('assets/js/as/app.js') }}"></script>
     <!-- Add Template -->
-    <script type="module" src="{{url('js')}}/main.js"></script>
+    <script type="module" src="{{url('template_vuexy')}}/main.js"></script>
     <script>
         const loaderColor = localStorage.getItem('vuexy-initial-loader-bg') || '#FFFFFF'
         const primaryColor = localStorage.getItem('vuexy-initial-loader-color') || '#7367F0'
